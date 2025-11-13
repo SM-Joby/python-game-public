@@ -1,0 +1,12 @@
+import pgzrun
+WIDTH = 500
+HEIGHT = 500
+
+def draw():
+    screen.clear()
+    screen.draw.filled_rect(Rect((50, 100),(350, 400)), "yellow")
+    screen.draw.filled_circle((225,250),75, "red")
+    screen.draw.filled_rect(Rect((50,60),(45,55) ),"purple")
+    screen.draw.line((200,230),(260,230),"black",5)
+
+pgzrun.go()
