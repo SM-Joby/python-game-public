@@ -1,0 +1,31 @@
+import pgzrun, pygame, random
+
+WIDTH = 750
+HEIGHT = 750
+
+TITLE = "Whack a mole"
+mole = Actor("molenobg")
+message = "hehehehehe"
+mole.pos = (150,100)
+
+def draw():
+    screen.clear()
+    screen.fill(color = (0,150,0)) 
+    mole.draw()
+    screen.draw.text(message,center = (400,10), fontsize = 30)
+
+def placing_mole():
+    mole.x =random.randint(50,450)
+    mole.y=random.randint(50,450)
+    
+def on_mouse_down(pos): 
+    global message 
+    if mole.collidepoint(pos):
+        message = "good hit"
+        placing_mole()
+    else:
+        message = "bad hit"
+
+placing_mole()
+
+pgzrun.go()
