@@ -17,7 +17,7 @@ def draw():
     screen.blit("beebackground",(0,0))
     bee.draw()
     flower.draw()
-    screen.draw.text("score" + str(score),center = (50,450), fontsize = 50) # center does
+    screen.draw.text("score" + str(score),center = (50,450), fontsize = 50) # center makes the middle of your text start at the point you have written
  
 #background
 #to give a background image we give screen.blit()

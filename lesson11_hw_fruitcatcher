@@ -1,0 +1,11 @@
+import pgzrun, random
+
+WIDTH = 800
+HEIGHT = 70
+
+#vegetables, the non-catchables
+eat = ["apple","orange","banana","eggplant","broccoli","carrots"]
+score = 0
+item = Actor(random.choice(eat))
+item.pos = (random.randint(0,775),0)
+
