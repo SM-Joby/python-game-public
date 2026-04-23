@@ -1,11 +1,56 @@
 import pgzrun, random
 
 WIDTH = 800
-HEIGHT = 70
+HEIGHT = 700
 
 #vegetables, the non-catchables
 eat = ["apple","orange","banana","eggplant","broccoli","carrots"]
 score = 0
 item = Actor(random.choice(eat))
 item.pos = (random.randint(0,775),0)
+
+bin = Actor("bin")
+bin.pos = (400,670)
+
+def draw():
+    screen.clear()
+    screen.fill(color = (0,0,225))
+    item.draw()
+    bin.draw()
+    screen.draw.text("Score: "+ str(score), (0,0),  fontsize = 20 )
+
+def update():
+    global item,score
+    item.y = item.y+4
+
+    if keyboard.left:
+        bin.x = bin.x-2
+    elif keyboard.right:
+        bin.x = bin.x+2
+    
+    if bin.colliderect(item):
+        if item.image == "apple":
+            score = score+10
+        elif item.image == "orange":
+            score = score+10
+        elif item.image == "banana":
+            score = score+10
+        elif item.image == "eggplant":
+            score = score-10
+        elif item.image == "broccoli":
+            score = score-10
+        elif item.image == "carrots":
+            score = score-10
+    
+        item = Actor(random.choice(eat))
+        item.pos = (random.randint(0,775),0)
+
+    if item.y>HEIGHT:
+        item = Actor(random.choice(eat))
+        item.pos = (random.randint(0,775),0)
+        
+
+
+pgzrun.go() 
+
 
